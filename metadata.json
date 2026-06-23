@@ -1,0 +1,8 @@
+{
+  "name": "Elite Clinic Proposal",
+  "description": "A premium, website-style proposal for a dermatology and aesthetic clinic, featuring Apple-style aesthetics and clear value propositions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
