@@ -249,13 +249,13 @@ export function Conclusion() {
 }
 
 export function ROICalculator() {
-  const [adSpend, setAdSpend] = useState<number>(3000);
-  const [avgTreatmentValue, setAvgTreatmentValue] = useState<number>(1500);
+  const [adSpend, setAdSpend] = useState<number>(100000);
+  const [avgTreatmentValue, setAvgTreatmentValue] = useState<number>(15000);
   
   // Basic simulation maths for the chart
-  const leads = Math.floor(adSpend / 50); // $50 per lead
-  const consultations = Math.floor(leads * 0.4); // 40% lead to consultation
-  const procedures = Math.floor(consultations * 0.5); // 50% consultation to procedure
+  const leads = Math.floor(adSpend / 1000); // ₹1000 per lead
+  const consultations = Math.floor(leads * 0.3); // 30% lead to consultation
+  const procedures = Math.floor(consultations * 0.3); // 30% consultation to procedure
   const revenue = procedures * avgTreatmentValue;
   const roi = Math.floor(((revenue - adSpend) / adSpend) * 100);
 
@@ -290,13 +290,13 @@ export function ROICalculator() {
             <div>
               <div className="flex justify-between mb-2">
                 <label className="text-sm font-medium text-slate-300">Monthly Ad Spend</label>
-                <span className="text-white font-mono">${adSpend.toLocaleString()}</span>
+                <span className="text-white font-mono">₹{adSpend.toLocaleString('en-IN')}</span>
               </div>
               <input 
                 type="range" 
-                min="1000" 
-                max="10000" 
-                step="500" 
+                min="20000" 
+                max="500000" 
+                step="10000" 
                 value={adSpend} 
                 onChange={(e) => setAdSpend(Number(e.target.value))}
                 className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white"
@@ -306,13 +306,13 @@ export function ROICalculator() {
             <div>
               <div className="flex justify-between mb-2">
                 <label className="text-sm font-medium text-slate-300">Avg. Treatment Value</label>
-                <span className="text-white font-mono">${avgTreatmentValue.toLocaleString()}</span>
+                <span className="text-white font-mono">₹{avgTreatmentValue.toLocaleString('en-IN')}</span>
               </div>
               <input 
                 type="range" 
-                min="500" 
-                max="5000" 
-                step="250" 
+                min="5000" 
+                max="100000" 
+                step="1000" 
                 value={avgTreatmentValue} 
                 onChange={(e) => setAvgTreatmentValue(Number(e.target.value))}
                 className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white"
@@ -321,17 +321,17 @@ export function ROICalculator() {
 
             <div className="pt-8 border-t border-white/10 grid grid-cols-2 gap-4">
                <div className="bg-white/5 rounded-2xl p-4 text-center ring-1 ring-white/10">
-                 <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-1">Target ROI</p>
+                 <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-1">Estimated ROI</p>
                  <p className="text-2xl font-bold text-white">{roi}%</p>
                </div>
                <div className="bg-white/5 rounded-2xl p-4 text-center ring-1 ring-white/10">
                  <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-1">Est. Revenue</p>
-                 <p className="text-2xl font-bold text-white">${revenue.toLocaleString()}</p>
+                 <p className="text-2xl font-bold text-white">₹{revenue.toLocaleString('en-IN')}</p>
                </div>
             </div>
             
             <p className="text-xs text-slate-500 text-center mt-4">
-              *Projections based on conservative industry benchmarks: $50 Cost Per Lead, 40% Contact Rate, 50% Close Rate.
+              *Projections based on conservative industry benchmarks: ₹1,000 Cost Per Lead, 30% Contact Rate, 30% Close Rate. Actual results may vary.
             </p>
           </div>
         </ScaleIn>
@@ -342,9 +342,9 @@ export function ROICalculator() {
             <div className="flex-1 flex items-end justify-between gap-2 sm:gap-4 relative pt-10">
               {/* Y-axis labels */}
               <div className="absolute left-0 top-0 bottom-0 w-12 flex flex-col justify-between text-xs text-slate-500 font-mono hidden sm:flex pb-6 -ml-2">
-                <span>${(revenue / 1000).toFixed(0)}k</span>
-                <span>${(revenue * 0.5 / 1000).toFixed(0)}k</span>
-                <span>$0k</span>
+                <span>₹{(revenue / 1000).toLocaleString('en-IN', {maximumFractionDigits: 0})}k</span>
+                <span>₹{(revenue * 0.5 / 1000).toLocaleString('en-IN', {maximumFractionDigits: 0})}k</span>
+                <span>₹0k</span>
               </div>
               
               {/* Grid lines */}
@@ -361,8 +361,8 @@ export function ROICalculator() {
                   <span className="text-xs text-slate-400 mt-4 whitespace-nowrap">{item.name.replace('Month ', 'M')}</span>
                   
                   {/* Tooltip on hover */}
-                  <div className="absolute top-0 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-800 text-white text-xs py-1 px-2 rounded-md whitespace-nowrap pointer-events-none transform -translate-y-4">
-                     ${item.revenue.toLocaleString()}
+                  <div className="absolute top-0 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-800 text-white text-xs py-1 px-2 rounded-md whitespace-nowrap pointer-events-none transform -translate-y-4 z-20">
+                     ₹{item.revenue.toLocaleString('en-IN')}
                   </div>
                 </div>
               ))}
