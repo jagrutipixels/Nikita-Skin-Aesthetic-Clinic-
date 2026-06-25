@@ -249,15 +249,15 @@ export function Conclusion() {
 }
 
 export function ROICalculator() {
-  const [adSpend, setAdSpend] = useState<number>(100000);
+  const [adSpend, setAdSpend] = useState<number>(40000);
   const [avgTreatmentValue, setAvgTreatmentValue] = useState<number>(15000);
   
   // Basic simulation maths for the chart
-  const leads = Math.floor(adSpend / 1000); // ₹1000 per lead
+  const leads = Math.floor(adSpend / 600); // ₹600 per lead
   const consultations = Math.floor(leads * 0.3); // 30% lead to consultation
   const procedures = Math.floor(consultations * 0.3); // 30% consultation to procedure
   const revenue = procedures * avgTreatmentValue;
-  const roi = Math.floor(((revenue - adSpend) / adSpend) * 100);
+  const roi = Math.max(0, Math.floor(((revenue - adSpend) / adSpend) * 100));
 
   const data = [
     { name: 'Month 1', revenue: revenue * 0.4 },
@@ -294,7 +294,7 @@ export function ROICalculator() {
               </div>
               <input 
                 type="range" 
-                min="20000" 
+                min="40000" 
                 max="500000" 
                 step="10000" 
                 value={adSpend} 
@@ -310,7 +310,7 @@ export function ROICalculator() {
               </div>
               <input 
                 type="range" 
-                min="5000" 
+                min="10000" 
                 max="100000" 
                 step="1000" 
                 value={avgTreatmentValue} 
@@ -331,7 +331,7 @@ export function ROICalculator() {
             </div>
             
             <p className="text-xs text-slate-500 text-center mt-4">
-              *Projections based on conservative industry benchmarks: ₹1,000 Cost Per Lead, 30% Contact Rate, 30% Close Rate. Actual results may vary.
+              *Projections based on conservative industry benchmarks: ₹600 Cost Per Lead, 30% Contact Rate, 30% Close Rate. Actual results may vary.
             </p>
           </div>
         </ScaleIn>
