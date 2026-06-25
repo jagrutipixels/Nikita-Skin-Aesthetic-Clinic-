@@ -89,7 +89,7 @@ function PageLayout({ children }: { children: React.ReactNode }) {
           <img 
             src="https://raw.githubusercontent.com/jagrutipixels/Nikita-Skin-Aesthetic-Clinic-/d62a456e9056e0a214ac60f5dc222a955bdc6fc8/evoque%20logo%20full.png" 
             alt="Evoque Consulting" 
-            className="h-10 object-contain" 
+            className="w-28 sm:w-32 object-contain" 
           />
           <button
             onClick={() => setLocation('/implementation')}
