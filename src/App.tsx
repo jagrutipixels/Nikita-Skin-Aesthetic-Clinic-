@@ -45,11 +45,11 @@ function PageLayout({ children }: { children: React.ReactNode }) {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden md:flex h-20 items-center justify-between">
             <div className="flex items-center gap-8">
-              <div className="flex-shrink-0 flex items-center pr-8 border-r border-slate-200">
+              <div className="flex-shrink-0 flex items-center pr-8">
                 <img 
                   src="https://raw.githubusercontent.com/jagrutipixels/Nikita-Skin-Aesthetic-Clinic-/d62a456e9056e0a214ac60f5dc222a955bdc6fc8/evoque%20logo%20full.png" 
                   alt="Evoque Consulting" 
-                  className="h-8 lg:h-10 object-contain" 
+                  className="w-36 md:w-40 lg:w-48 h-auto object-contain" 
                 />
               </div>
               <nav>
@@ -89,7 +89,7 @@ function PageLayout({ children }: { children: React.ReactNode }) {
           <img 
             src="https://raw.githubusercontent.com/jagrutipixels/Nikita-Skin-Aesthetic-Clinic-/d62a456e9056e0a214ac60f5dc222a955bdc6fc8/evoque%20logo%20full.png" 
             alt="Evoque Consulting" 
-            className="w-28 sm:w-32 object-contain" 
+            className="w-32 sm:w-36 h-auto object-contain" 
           />
           <button
             onClick={() => setLocation('/implementation')}
