@@ -4,12 +4,21 @@
  */
 
 import { Route, Switch, useLocation } from 'wouter';
-import { Hero, CurrentPosition } from './components/Section1to2';
-import { Opportunity, GrowthGaps } from './components/Section3to4';
-import { Framework, Foundation, GrowthEngine } from './components/Section5to7';
-import { Funnel, Investment, Conclusion } from './components/Section8to10';
-import { ChevronRight, ArrowRight, ArrowLeft } from 'lucide-react';
-import { useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
+import React, { useEffect, Suspense, lazy } from 'react';
+
+const Hero = lazy(() => import('./components/Section1to2').then(module => ({ default: module.Hero })));
+const CurrentPosition = lazy(() => import('./components/Section1to2').then(module => ({ default: module.CurrentPosition })));
+const Opportunity = lazy(() => import('./components/Section3to4').then(module => ({ default: module.Opportunity })));
+const MissingFoundation = lazy(() => import('./components/Section3to4').then(module => ({ default: module.MissingFoundation })));
+const GrowthGaps = lazy(() => import('./components/Section3to4').then(module => ({ default: module.GrowthGaps })));
+const Framework = lazy(() => import('./components/Section5to7').then(module => ({ default: module.Framework })));
+const Foundation = lazy(() => import('./components/Section5to7').then(module => ({ default: module.Foundation })));
+const GrowthEngine = lazy(() => import('./components/Section5to7').then(module => ({ default: module.GrowthEngine })));
+const Funnel = lazy(() => import('./components/Section8to10').then(module => ({ default: module.Funnel })));
+const Investment = lazy(() => import('./components/Section8to10').then(module => ({ default: module.Investment })));
+const Conclusion = lazy(() => import('./components/Section8to10').then(module => ({ default: module.Conclusion })));
+const ROICalculator = lazy(() => import('./components/Section8to10').then(module => ({ default: module.ROICalculator })));
 
 const pages = [
   { path: '/', title: 'Overview' },
@@ -127,8 +136,14 @@ function PageLayout({ children }: { children: React.ReactNode }) {
                   </p>
                   <button 
                     onClick={() => {
-                        alert("Interactive proposal accepted state triggered! This would normally log their IP, send an email to the sales rep, and advance to a digital signature view.");
+                        const btn = document.getElementById('approve-btn');
+                        if (btn) {
+                          btn.innerHTML = 'Proposal Accepted ✓';
+                          btn.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
+                          btn.classList.remove('bg-white', 'text-slate-900', 'hover:bg-slate-100');
+                        }
                     }}
+                    id="approve-btn"
                     className="inline-flex h-14 items-center justify-center rounded-full bg-white px-8 text-lg font-semibold text-slate-900 hover:bg-slate-100 hover:shadow-xl transition-all transform hover:-translate-y-1"
                   >
                     Approve &amp; Initiate Strategy
@@ -171,6 +186,7 @@ const OverviewPage = () => (
 const OpportunityPage = () => (
   <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
     <Opportunity />
+    <MissingFoundation />
     <GrowthGaps />
   </div>
 );
@@ -187,6 +203,7 @@ const ImplementationPage = () => (
   <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
     <Funnel />
     <Investment />
+    <ROICalculator />
     <Conclusion />
   </div>
 );
@@ -194,12 +211,14 @@ const ImplementationPage = () => (
 export default function App() {
   return (
     <PageLayout>
-      <Switch>
-        <Route path="/" component={OverviewPage} />
-        <Route path="/opportunity" component={OpportunityPage} />
-        <Route path="/strategy" component={StrategyPage} />
-        <Route path="/implementation" component={ImplementationPage} />
-      </Switch>
+      <Suspense fallback={<div className="flex h-[50vh] items-center justify-center text-slate-500">Loading...</div>}>
+        <Switch>
+          <Route path="/" component={OverviewPage} />
+          <Route path="/opportunity" component={OpportunityPage} />
+          <Route path="/strategy" component={StrategyPage} />
+          <Route path="/implementation" component={ImplementationPage} />
+        </Switch>
+      </Suspense>
     </PageLayout>
   );
 }

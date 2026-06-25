@@ -9,8 +9,8 @@ export function Opportunity() {
       <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16 lg:items-center">
         <FadeIn>
           <h2 className="font-serif text-4xl tracking-tight sm:text-5xl lg:text-6xl text-balance">
-            You Already Have Trust.<br />
-            <span className="text-slate-400">Now It's Time To Build Authority.</span>
+            Your Expertise Has Earned Trust.<br />
+            <span className="text-slate-400">Now Let's Build Authority That Reaches Thousands.</span>
           </h2>
         </FadeIn>
         <FadeIn delay={0.2} className="space-y-6 text-lg leading-8 text-slate-300">
@@ -36,6 +36,41 @@ export function Opportunity() {
             ))}
           </ul>
         </FadeIn>
+      </div>
+    </Section>
+  );
+}
+
+export function MissingFoundation() {
+  return (
+    <Section className="bg-white">
+      <FadeIn>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-serif text-3xl tracking-tight text-slate-900 sm:text-4xl">The Missing Foundation</h2>
+          <p className="mt-4 text-lg leading-8 text-slate-600">
+            Although the clinic has excellent clinical expertise and an established patient base, there is currently no structured digital foundation that captures, communicates, and scales Dr. Nikita's expertise across digital platforms.
+          </p>
+        </div>
+      </FadeIn>
+      <div className="mx-auto mt-16 max-w-4xl text-center">
+        <p className="text-lg font-medium text-slate-900 mb-8">This digital foundation will support:</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          {[
+            'Personal Branding',
+            'Social Media',
+            'Website',
+            'SEO',
+            'Google Business Profile',
+            'Patient Education',
+            'Future Product Launches',
+            'New Technology Launches',
+            'Clinic Expansion'
+          ].map(item => (
+            <span key={item} className="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </Section>
   );

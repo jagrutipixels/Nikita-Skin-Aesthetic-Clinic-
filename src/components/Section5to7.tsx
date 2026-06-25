@@ -168,14 +168,14 @@ export function GrowthEngine() {
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-serif text-3xl tracking-tight text-slate-900 sm:text-4xl">Phase 2: Growth Engine</h2>
           <p className="mt-4 text-lg leading-8 text-slate-600">
-            Once the foundation is solid, we turn on the traffic. These ongoing retainers act as a unified engine: Social Media builds the desire, SEO captures organic intent, and Meta Ads drive immediate action and retargeting.
+            Once the digital foundation has been established, Phase 2 focuses on creating a predictable patient acquisition system through strategic content, search visibility, paid advertising and continuous optimisation. Rather than simply managing marketing activities, our role is to continuously align digital efforts with your business goals while improving patient acquisition, brand authority and procedure growth.
           </p>
         </div>
       </FadeIn>
 
       <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
         <FadeIn delay={0.1} className="rounded-3xl bg-white p-10 ring-1 ring-slate-900/5 hover:shadow-lg transition-all">
-          <h3 className="font-serif text-2xl font-semibold mb-8 text-slate-900 pb-6 border-b border-slate-100">Social Media Management</h3>
+          <h3 className="font-serif text-2xl font-semibold mb-8 text-slate-900 pb-6 border-b border-slate-100">Brand Growth Strategy</h3>
           <ul className="space-y-4">
             {['12 Reels', '4 Static Posts', '4 Carousel Posts', 'Doctor Branding', 'Patient Education'].map(item => (
                <li key={item} className="flex items-center gap-3 text-slate-600">
@@ -187,7 +187,7 @@ export function GrowthEngine() {
         </FadeIn>
 
         <FadeIn delay={0.2} className="rounded-3xl bg-slate-900 text-white p-10 shadow-xl scale-105 relative z-10 transition-all">
-          <h3 className="font-serif text-2xl font-semibold mb-8 pb-6 border-b border-slate-800">Meta Ads Management</h3>
+          <h3 className="font-serif text-2xl font-semibold mb-8 pb-6 border-b border-slate-800">Patient Acquisition System</h3>
           <ul className="space-y-4">
             {['Lead Generation', 'Consultation Campaigns', 'Retargeting', 'Procedure Promotion'].map(item => (
                <li key={item} className="flex items-center gap-3 text-slate-300">
@@ -199,7 +199,7 @@ export function GrowthEngine() {
         </FadeIn>
 
         <FadeIn delay={0.3} className="rounded-3xl bg-white p-10 ring-1 ring-slate-900/5 hover:shadow-lg transition-all">
-          <h3 className="font-serif text-2xl font-semibold mb-8 text-slate-900 pb-6 border-b border-slate-100">SEO Management</h3>
+          <h3 className="font-serif text-2xl font-semibold mb-8 text-slate-900 pb-6 border-b border-slate-100">Search Visibility</h3>
           <ul className="space-y-4">
             {['Local SEO', 'On Page SEO', 'Google Visibility', 'Blog Strategy'].map(item => (
                <li key={item} className="flex items-center gap-3 text-slate-600">
@@ -210,6 +210,36 @@ export function GrowthEngine() {
           </ul>
         </FadeIn>
       </div>
+
+      <FadeIn delay={0.4}>
+        <div className="mx-auto mt-16 max-w-4xl rounded-3xl bg-slate-900 p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-white/5 rounded-full blur-3xl saturate-150"></div>
+          <div className="relative z-10">
+            <h3 className="font-serif text-3xl font-semibold mb-4">Strategic Growth Partnership</h3>
+            <p className="text-slate-300 text-lg leading-relaxed mb-8">
+               Beyond execution, we function as a Fractional Marketing Partner by providing ongoing strategic guidance. Think of this as executive-level marketing leadership without the cost of hiring an in-house marketing head.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8 text-sm font-medium text-slate-200">
+               {[
+                 'Monthly marketing planning',
+                 'Campaign strategy',
+                 'Business performance reviews',
+                 'Consultation trend analysis',
+                 'Seasonal campaign recommendations',
+                 'Procedure promotion planning',
+                 'Content strategy refinement',
+                 'Advertising optimisation',
+                 'Growth recommendations'
+               ].map(item => (
+                 <div key={item} className="flex items-center gap-2">
+                    <span className="text-white">✓</span>
+                    {item}
+                 </div>
+               ))}
+            </div>
+          </div>
+        </div>
+      </FadeIn>
     </Section>
   );
 }

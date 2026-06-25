@@ -19,12 +19,12 @@ export function Hero() {
         </StaggerItem>
         <StaggerItem>
           <p className="mt-8 font-sans text-xl font-medium tracking-tight text-slate-300 sm:text-3xl">
-            Building Authority. Increasing Visibility. Driving Patient Growth.
+            You've Built a Trusted Practice. Now Let's Build a Recognized Healthcare Brand.
           </p>
         </StaggerItem>
         <StaggerItem>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-400">
-            Position Advanced Health &amp; Skin Clinic as the preferred destination for dermatology and aesthetic treatments through a strategic blend of branding, website development, local search visibility, content marketing, SEO and patient acquisition systems.
+            Your expertise has already earned the trust of your patients. Our objective is to build a digital ecosystem that amplifies that trust, expands your authority, and reaches thousands of potential patients who haven't discovered your clinic yet.
           </p>
         </StaggerItem>
         <StaggerItem>
@@ -54,7 +54,7 @@ export function CurrentPosition() {
         <div className="mx-auto max-w-3xl lg:mx-0">
           <h2 className="font-serif text-3xl tracking-tight text-slate-900 sm:text-4xl">Current Business Position</h2>
           <p className="mt-4 text-lg leading-8 text-slate-600">
-            Before mapping out your growth strategy, we analyze the foundation you have already built. Your clinic possesses a strong baseline of clinical excellence, but your digital footprint does not currently reflect the premium nature of your services.
+            Before mapping out your growth strategy, we analyze the foundation you have already built. Your clinic possesses a strong baseline of clinical excellence. Our goal is to ensure your digital footprint reflects the premium nature of your services and amplifies your established reputation.
           </p>
         </div>
       </SlideIn>
@@ -103,7 +103,7 @@ export function CurrentPosition() {
             <div className="relative z-10">
               <h3 className="font-serif text-2xl font-semibold text-slate-900">Growth Opportunity</h3>
               <p className="mt-4 text-slate-600 text-sm leading-relaxed">
-                There is a significant gap between your clinical capability and your market perception. By closing this visibility gap, we can activate new, highly profitable revenue channels.
+                While your clinical capability is exceptional, there is an opportunity to expand your market perception. By increasing your digital visibility, we can activate new, highly profitable revenue channels and scale your impact.
               </p>
               <ul className="mt-8 space-y-4">
                 {[

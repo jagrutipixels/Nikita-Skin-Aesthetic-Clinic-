@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FadeIn, Section, StaggerContainer, StaggerItem, SlideIn, ScaleIn } from './Layout';
-import { ArrowDown, CheckCircle2, Blocks, Rocket, Search, Instagram, Facebook, MonitorSmartphone, MessageCircle, CalendarCheck, Sparkles, Star, Users } from 'lucide-react';
+import { ArrowDown, CheckCircle2, Blocks, Rocket, Search, Instagram, Facebook, MonitorSmartphone, MessageCircle, CalendarCheck, Sparkles, Star, Users, Calculator, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const funnelSteps = [
@@ -179,19 +179,19 @@ export function Investment() {
             <div className="space-y-4 text-sm leading-6 text-slate-300">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-slate-500" />
-                <span>Bi-weekly Social Media execution (Reels, Carousels)</span>
+                <span>Brand Growth Strategy (Reels, Carousels)</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-slate-500" />
-                <span>Local & Content SEO Management</span>
+                <span>Search Visibility & Content SEO</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-slate-500" />
-                <span>Meta Ads Management (Lead Gen & Retargeting)</span>
+                <span>Patient Acquisition System (Meta Ads)</span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-slate-500" />
-                <span>Monthly performance reporting & consulting</span>
+                <span>Strategic Growth Partnership & Reporting</span>
               </div>
             </div>
           </div>
@@ -218,11 +218,19 @@ export function Conclusion() {
         </SlideIn>
       </div>
 
-      <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
-        {['Build Permanent Authority', 'Increase Local Visibility', 'Generate Qualified Leads', 'Scale Premium Procedures'].map((item, index) => (
-          <StaggerItem key={item}>
-             <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 text-center h-full flex items-center justify-center font-medium text-slate-900 hover:bg-slate-900 hover:text-white transition-colors cursor-default">
-               {item}
+      <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+        {[
+          { title: 'Build a Recognised Healthcare Brand', desc: 'Transition from a local practice to a regional authority.' },
+          { title: 'Strengthen Patient Trust at Scale', desc: 'Educate and pre-qualify patients before they enter the clinic.' },
+          { title: 'Increase Local Visibility', desc: 'Dominate search results when patients seek premium treatments.' },
+          { title: 'Generate Qualified Patient Enquiries', desc: 'Replace unpredictable word-of-mouth with a reliable acquisition engine.' },
+          { title: 'Increase Revenue Through Premium Procedures', desc: 'Shift your patient mix toward high-margin aesthetic treatments.' },
+          { title: 'Build Long-Term Digital Assets', desc: 'Develop proprietary marketing assets that compound in value over time.' }
+        ].map((item, index) => (
+          <StaggerItem key={item.title}>
+             <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 h-full flex flex-col justify-center text-slate-900 hover:bg-slate-900 hover:text-white transition-colors cursor-default group">
+               <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+               <p className="text-slate-500 text-sm group-hover:text-slate-300">{item.desc}</p>
              </div>
           </StaggerItem>
         ))}
@@ -231,11 +239,137 @@ export function Conclusion() {
       <ScaleIn delay={0.4} className="mx-auto max-w-5xl text-center rounded-3xl bg-slate-900 shadow-2xl p-12 sm:p-20 group relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-800/50 to-slate-900/50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-1000 ease-out"></div>
         <div className="relative z-10">
-          <blockquote className="font-serif text-2xl leading-relaxed text-white sm:text-3xl max-w-3xl mx-auto">
-            "Our objective is not simply to run marketing campaigns for Advanced Health &amp; Skin Clinic. Our objective is to build an unassailable dermatology brand that attracts elite patients, dominates the local market, and creates a sustainable foundation for lasting business growth."
+          <blockquote className="font-serif text-2xl leading-relaxed text-white sm:text-3xl max-w-4xl mx-auto">
+            "Our objective is to build a digital ecosystem that supports the next phase of Advanced Health &amp; Skin Clinic's growth—whether that is expanding the practice, launching advanced laser technologies, or driving a higher volume of premium aesthetic procedures."
           </blockquote>
         </div>
       </ScaleIn>
+    </Section>
+  );
+}
+
+export function ROICalculator() {
+  const [adSpend, setAdSpend] = useState<number>(3000);
+  const [avgTreatmentValue, setAvgTreatmentValue] = useState<number>(1500);
+  
+  // Basic simulation maths for the chart
+  const leads = Math.floor(adSpend / 50); // $50 per lead
+  const consultations = Math.floor(leads * 0.4); // 40% lead to consultation
+  const procedures = Math.floor(consultations * 0.5); // 50% consultation to procedure
+  const revenue = procedures * avgTreatmentValue;
+  const roi = Math.floor(((revenue - adSpend) / adSpend) * 100);
+
+  const data = [
+    { name: 'Month 1', revenue: revenue * 0.4 },
+    { name: 'Month 2', revenue: revenue * 0.6 },
+    { name: 'Month 3', revenue: revenue * 0.8 },
+    { name: 'Month 4', revenue: revenue * 0.9 },
+    { name: 'Month 5', revenue: revenue * 0.95 },
+    { name: 'Month 6', revenue: revenue },
+  ];
+
+  return (
+    <Section className="bg-slate-900 text-white">
+      <SlideIn direction="up">
+        <div className="mx-auto max-w-3xl text-center mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold text-slate-300 bg-white/10 ring-1 ring-inset ring-white/20 mb-6">
+            <Calculator className="w-4 h-4" />
+            Growth Projection
+          </div>
+          <h2 className="font-serif text-3xl tracking-tight text-white sm:text-4xl">Interactive ROI Calculator</h2>
+          <p className="mt-4 text-lg leading-8 text-slate-400">
+            Adjust the sliders below to see the compounding effect of our acquisition system on your clinic's revenue over a 6-month period.
+          </p>
+        </div>
+      </SlideIn>
+
+      <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12">
+        {/* Controls */}
+        <ScaleIn delay={0.1} className="lg:col-span-5 bg-white/5 rounded-3xl p-8 ring-1 ring-white/10">
+          <div className="space-y-8">
+            <div>
+              <div className="flex justify-between mb-2">
+                <label className="text-sm font-medium text-slate-300">Monthly Ad Spend</label>
+                <span className="text-white font-mono">${adSpend.toLocaleString()}</span>
+              </div>
+              <input 
+                type="range" 
+                min="1000" 
+                max="10000" 
+                step="500" 
+                value={adSpend} 
+                onChange={(e) => setAdSpend(Number(e.target.value))}
+                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white"
+              />
+            </div>
+
+            <div>
+              <div className="flex justify-between mb-2">
+                <label className="text-sm font-medium text-slate-300">Avg. Treatment Value</label>
+                <span className="text-white font-mono">${avgTreatmentValue.toLocaleString()}</span>
+              </div>
+              <input 
+                type="range" 
+                min="500" 
+                max="5000" 
+                step="250" 
+                value={avgTreatmentValue} 
+                onChange={(e) => setAvgTreatmentValue(Number(e.target.value))}
+                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-white"
+              />
+            </div>
+
+            <div className="pt-8 border-t border-white/10 grid grid-cols-2 gap-4">
+               <div className="bg-white/5 rounded-2xl p-4 text-center ring-1 ring-white/10">
+                 <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-1">Target ROI</p>
+                 <p className="text-2xl font-bold text-white">{roi}%</p>
+               </div>
+               <div className="bg-white/5 rounded-2xl p-4 text-center ring-1 ring-white/10">
+                 <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-1">Est. Revenue</p>
+                 <p className="text-2xl font-bold text-white">${revenue.toLocaleString()}</p>
+               </div>
+            </div>
+            
+            <p className="text-xs text-slate-500 text-center mt-4">
+              *Projections based on conservative industry benchmarks: $50 Cost Per Lead, 40% Contact Rate, 50% Close Rate.
+            </p>
+          </div>
+        </ScaleIn>
+
+        {/* Chart */}
+        <ScaleIn delay={0.2} className="lg:col-span-7 h-[400px] w-full relative">
+          <div className="bg-white/5 rounded-3xl p-8 ring-1 ring-white/10 h-full flex flex-col justify-end">
+            <div className="flex-1 flex items-end justify-between gap-2 sm:gap-4 relative pt-10">
+              {/* Y-axis labels */}
+              <div className="absolute left-0 top-0 bottom-0 w-12 flex flex-col justify-between text-xs text-slate-500 font-mono hidden sm:flex pb-6 -ml-2">
+                <span>${(revenue / 1000).toFixed(0)}k</span>
+                <span>${(revenue * 0.5 / 1000).toFixed(0)}k</span>
+                <span>$0k</span>
+              </div>
+              
+              {/* Grid lines */}
+              <div className="absolute inset-0 border-b border-dashed border-slate-700/50 hidden sm:block top-0 mt-[1.25rem]"></div>
+              <div className="absolute inset-0 border-b border-dashed border-slate-700/50 hidden sm:block top-1/2"></div>
+              
+              {/* Bars */}
+              {data.map((item, i) => (
+                <div key={item.name} className="flex-1 flex flex-col items-center justify-end h-full z-10 group">
+                  <div className="w-full max-w-[48px] bg-white/20 rounded-t-sm hover:bg-white/40 transition-all relative overflow-hidden group-hover:ring-2 ring-white/50" 
+                    style={{ height: `${(item.revenue / revenue) * 100}%` }}>
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-white/40 opacity-50"></div>
+                  </div>
+                  <span className="text-xs text-slate-400 mt-4 whitespace-nowrap">{item.name.replace('Month ', 'M')}</span>
+                  
+                  {/* Tooltip on hover */}
+                  <div className="absolute top-0 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-800 text-white text-xs py-1 px-2 rounded-md whitespace-nowrap pointer-events-none transform -translate-y-4">
+                     ${item.revenue.toLocaleString()}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </ScaleIn>
+      </div>
     </Section>
   );
 }

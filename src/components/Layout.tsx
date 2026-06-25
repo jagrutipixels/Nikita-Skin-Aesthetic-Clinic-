@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { motion, Variants } from 'motion/react';
 
 export function FadeIn({
@@ -9,6 +9,7 @@ export function FadeIn({
   children: ReactNode;
   delay?: number;
   className?: string;
+  key?: React.Key;
 }) {
   return (
     <motion.div
@@ -33,6 +34,7 @@ export function SlideIn({
   delay?: number;
   direction?: 'left' | 'right' | 'up' | 'down';
   className?: string;
+  key?: React.Key;
 }) {
   const directionOffset = {
     left: { x: -40, y: 0 },
@@ -62,6 +64,7 @@ export function ScaleIn({
   children: ReactNode;
   delay?: number;
   className?: string;
+  key?: React.Key;
 }) {
   return (
     <motion.div
@@ -104,6 +107,7 @@ export function StaggerContainer({
 }: {
   children: ReactNode;
   className?: string;
+  key?: React.Key;
 }) {
   return (
     <motion.div
@@ -124,6 +128,7 @@ export function StaggerItem({
 }: {
   children: ReactNode;
   className?: string;
+  key?: React.Key;
 }) {
   return (
     <motion.div variants={itemVariants} className={className}>
@@ -140,6 +145,7 @@ export function Section({
   children: ReactNode;
   className?: string;
   id?: string;
+  key?: React.Key;
 }) {
   return (
     <section id={id} className={`py-24 sm:py-32 ${className}`}>
